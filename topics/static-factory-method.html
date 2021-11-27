@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Static Factory Method</title>
+
+    <style>
+      li {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1># Static Factory Method</h1>
+
+    <div>
+      <ul>
+        <li>
+          Java constructors are the default mechanism for getting fully
+          inilialized class instance
+        </li>
+        <li>
+          But in few specific use cases, it's preferable to use static factory
+          methods for achieving the same result
+        </li>
+        <li>
+          When we have to create more than once constructor then we can go with
+          Static Factory Method
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Advantages of Static Factory Methods Over Constructors</h3>
+
+      <ul>
+        <li>
+          Constructors don't have meaningful names, Static factory methods can
+          have meaningful names
+        </li>
+        <li>
+          Static factory methods can return the same type that implements the
+          method(s), a subtype, and also primitives, so they offer a more
+          flexible range of returning types
+        </li>
+        <li>
+          Static factory methods can encapsulate all the logic required for
+          pre-constructing fully initialized instances, so they can be used for
+          moving this additional logic out of constructors. This prevents
+          constructors from performing further tasks, others than just
+          initializing fields
+        </li>
+        <li>
+          Static factory methods can be controlled-instanced methods, with the
+          Singleton pattern being the most glaring example of this feature
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Example</h3>
+      <p>
+        There are several examples of user of static factory methods. Here below
+        is the example of string class.
+      </p>
+      <pre>
+        <ul>
+          <li><strong>Creating object of String using constructor</strong></li>
+          String value = new String("Baeldung");
+
+          <li><strong>Creating object of String using static factory methods</strong></li>
+          String value1 = String.valueOf(1);
+          String value2 = String.valueOf(1.0L);
+          String value3 = String.valueOf(true);
+          String value4 = String.valueOf('a');
+        </ul>
+      </pre>
+
+      <pre>
+        <strong>Custom Static Factory Method</strong>
+
+        public final class Product { 
+          private int price; 
+          private String description; 
+ 
+          private Product(int price,String description) { 
+            this.price = price; 
+            this.description = description; 
+          }
+          
+          // Static factory method
+          public static Product getNewProduct(int price,String description) { 
+            return new Product(price,description); 
+          }
+        }
+      </pre>
+    </div>
+
+    <div>
+      <h3>Further Reading:</h3>
+      <ul>
+        <li>
+          <a
+            href="https://www.baeldung.com/java-constructors-vs-static-factory-methods"
+            >https://www.baeldung.com/java-constructors-vs-static-factory-methods</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <a href="../index.html">Back to Home</a>
+  </body>
+</html>
