@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super()</title>
+  </head>
+  <body>
+    <h1># super()</h1>
+
+    <div>
+      <ul>
+        <li>
+          super() in Java is used to call the no-arg constructor of parent
+          class.
+        </li>
+        <li>Super must be the first statement in devired class constructor</li>
+        <li>
+          If child class constructor does not invoke super() inside constructor
+          explicitly then Java compiler inserts a call to the super class
+          no-args constructor at compile time.
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Example</h3>
+      <pre>
+        class Person {
+          Person(){
+            System.out.println("Person class Constructor");
+          }
+        }
+ 
+        class Student extends Person {
+          Student(){
+            super();
+            System.out.println("Student class Constructor");
+          }
+        }
+      </pre>
+    </div>
+
+    <a href="../index.html">Back to Home</a>
+  </body>
+</html>
